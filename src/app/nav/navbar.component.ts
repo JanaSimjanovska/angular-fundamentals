@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './navbar.component.html',
   styles: [
     `
+      li > a.active {
+        color: #f97924;
+      }
       .navbar {
         margin-top: 10px;
       }
