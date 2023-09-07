@@ -4,14 +4,22 @@ import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login.component.html',
+  styles: [
+    `
+      em {
+        float: right;
+        color: #e05c65;
+        padding-left: 10px;
+      }
+    `,
+  ],
 })
 export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
   password = '';
   userName = '';
-
+  mouseOverLogin: boolean;
   login(formValues: any) {
-    console.log({ formValues });
     this.authService.loginUser(formValues.userName, formValues.password);
     this.router.navigate(['/events']);
   }
