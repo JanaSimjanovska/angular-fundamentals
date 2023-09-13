@@ -84,7 +84,9 @@
         error:
           abstract.invalid &&
           abstract.dirty &&
-          (abstract.hasError('required') || abstract.hasError('maxLength'))
+          (abstract.hasError('required') ||
+            abstract.hasError('maxLength') ||
+            abstract.hasError('restrictedWords'))
       }"
     >
       <label for="abstract">Abstract:</label>
@@ -99,6 +101,9 @@
           abstract.invalid && abstract.dirty && abstract.value.length > 400
         "
         >Cannot exceed 400 characters</em
+      >
+      <em *ngIf="abstract.hasError('restrictedWords')"
+        >Restricted words found: {{ abstract.errors?.["restrictedWords"] }}</em
       >
       <textarea
         formControlName="abstract"
