@@ -21,4 +21,17 @@
       </address>
     </div>
   </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-2">
+      <h3 style="margin:0">Sessions</h3>
+
+      <div class="col-md-2">
+        <a (click)="addSession()">Add Session</a>
+      </div>
+    </div>
+  </div>
+  <session-list *ngIf="event?.sessions" [sessions]="event.sessions"></session-list>
 </div>

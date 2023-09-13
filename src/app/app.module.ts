@@ -14,6 +14,7 @@ import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { Error404Component } from './errors/404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SessionListComponent } from './events/event-details/session-list.component';
 
 @NgModule({
   imports: [
@@ -31,13 +32,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Error404Component,
     CreateEventComponent,
     CreateSessionComponent,
+    SessionListComponent
   ],
   providers: [
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
   ],
   bootstrap: [EventsAppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty) {
