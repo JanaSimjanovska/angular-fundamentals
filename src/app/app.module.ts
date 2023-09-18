@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { Error404Component } from './errors/404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SessionListComponent } from './events/event-details/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { SessionListComponent } from './events/event-details/session-list.compon
     Error404Component,
     CreateEventComponent,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   providers: [
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },

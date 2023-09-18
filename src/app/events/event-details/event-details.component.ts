@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { EventService } from '../shared/event.service';
 import { ActivatedRoute } from '@angular/router';
-import { IEvent } from '../shared/index';
+import { IEvent, ISession } from '../shared/index';
 
 @Component({
   templateUrl: './event-details.component.html',
@@ -35,5 +35,17 @@ export class EventDetailsComponent {
 
   addSession() {
     this.addMode = true;
+  }
+
+  saveNewSession(session: ISession) {
+    const lastId = Math.max.apply(null, this.event.sessions.map(session => session.id));
+    session.id = lastId + 1;
+    this.event.sessions.push(session);
+    this.eventService.updateEvent(this.event);
+    this.addMode = false;
+  }
+
+  cancelAddSession() {
+    this.addMode = false;
   }
 }
